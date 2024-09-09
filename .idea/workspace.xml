@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7dcb2005-35cf-40a0-b9ba-ca3bcd82594e" name="Changes" comment="no se por que no se subieron owo" />
+    <list default="true" id="7dcb2005-35cf-40a0-b9ba-ca3bcd82594e" name="Changes" comment="guinicorn instalado">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUDRender.py" beforeDir="false" afterPath="$PROJECT_DIR$/CRUDRender.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,7 +79,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1725918643109</updated>
-      <workItem from="1725918650404" duration="1872000" />
+      <workItem from="1725918650404" duration="2599000" />
     </task>
     <task id="LOCAL-00001" summary="Se cre repositorio. Crud listo (solo modo automatico">
       <option name="closed" value="true" />
@@ -102,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725920207662</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="guinicorn instalado">
+      <option name="closed" value="true" />
+      <created>1725920620328</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1725920620328</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,9 +124,10 @@
     <MESSAGE value="Se cre repositorio. Crud listo (solo modo automatico" />
     <MESSAGE value="crud actualizado para funcionar ocmo un server web" />
     <MESSAGE value="no se por que no se subieron owo" />
-    <option name="LAST_COMMIT_MESSAGE" value="no se por que no se subieron owo" />
+    <MESSAGE value="guinicorn instalado" />
+    <option name="LAST_COMMIT_MESSAGE" value="guinicorn instalado" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ComputoNube$CRUDRender.coverage" NAME="CRUDRender Coverage Results" MODIFIED="1725919992934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ComputoNube$CRUDRender.coverage" NAME="CRUDRender Coverage Results" MODIFIED="1725920873567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
