@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Empleados</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Gestión de Empleados</h1>
+
+    <!-- Mensajes Flash -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="alert alert-success" role="alert">
+        {{ messages[0] }}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- Formulario para Crear Empleado -->
+    <h2>Agregar Empleado</h2>
+    <form action="{{ url_for('create') }}" method="POST">
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="cargo">Cargo</label>
+            <input type="text" class="form-control" id="cargo" name="cargo" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar</button>
+    </form>
+
+    <!-- Lista de Empleados -->
+    <h2 class="mt-5">Lista de Empleados</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Cargo</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for empleado in empleados %}
+        <tr>
+            <td>{{ empleado[0] }}</td>
+            <td>{{ empleado[1] }}</td>
+            <td>{{ empleado[2] }}</td>
+            <td>
+                <!-- Formulario para Actualizar Empleado -->
+                <form action="{{ url_for('update', id=empleado[0]) }}" method="POST" class="d-inline">
+                    <input type="text" name="nombre" value="{{ empleado[1] }}" required>
+                    <input type="text" name="cargo" value="{{ empleado[2] }}" required>
+                    <button type="submit" class="btn btn-success">Actualizar</button>
+                </form>
+
+                <!-- Formulario para Eliminar Empleado -->
+                <form action="{{ url_for('delete', id=empleado[0]) }}" method="POST" class="d-inline">
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
