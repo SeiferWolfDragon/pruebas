@@ -1,98 +1,88 @@
-from flask import Flask, jsonify, request, redirect
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, request, jsonify
+import pymysql
 
 app = Flask(__name__)
 
-# Configuración de la base de datos PostgreSQL
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://seiferwolfdragon_user:2AEhHHC8WUkMrN4U7NZvInl8HPkVIKUj@dpg-crd2t0rv2p9s73det5i0-a.oregon-postgres.render.com/seiferwolfdragon'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
-
-# Definición del modelo de la tabla 'estudiantes'
-class Estudiante(db.Model):
-    __tablename__ = 'estudiantes'
-    no_control = db.Column(db.String, primary_key=True)
-    nombre = db.Column(db.String, nullable=True)
-    ap_paterno = db.Column(db.String, nullable=True)
-    ap_materno = db.Column(db.String, nullable=True)
-    semestre = db.Column(db.Integer, nullable=True)
-
-# Verificar si la tabla 'estudiantes' existe y crearla si no existe
-with app.app_context():
-    # Crea la tabla si no existe
-    db.create_all()
-
-# Endpoint para obtener todos los estudiantes
-@app.route('/estudiantes', methods=['GET'])
-def obtener_estudiantes():
-    estudiantes = Estudiante.query.all()
-    lista_estudiantes = []
-    for estudiante in estudiantes:
-        lista_estudiantes.append({
-            'no_control': estudiante.no_control,
-            'nombre': estudiante.nombre,
-            'ap_paterno': estudiante.ap_paterno,
-            'ap_materno': estudiante.ap_materno,
-            'semestre': estudiante.semestre
-        })
-    return jsonify(lista_estudiantes)
-
-@app.route("/", methods=['GET'])
-def holamundo():
-    return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-# Endpoint para agregar un nuevo estudiante
-@app.route('/estudiantes', methods=['POST'])
-def agregar_estudiante():
-    data = request.get_json()
-    nuevo_estudiante = Estudiante(
-        no_control=data['no_control'],
-        nombre=data['nombre'],
-        ap_paterno=data['ap_paterno'],
-        ap_materno=data['ap_materno'],
-        semestre=data['semestre']
+# Configuración de la conexión a la base de datos
+def get_connection():
+    return pymysql.connect(
+        host='localhost',
+        user='root',
+        password='chuleta',
+        database='CETECH',
+        port=3308,
+        cursorclass=pymysql.cursors.DictCursor
     )
-    db.session.add(nuevo_estudiante)
-    db.session.commit()
-    return jsonify({'mensaje': 'Estudiante agregado exitosamente'}), 201
 
-# Endpoint para obtener un estudiante por no_control
-@app.route('/estudiantes/<no_control>', methods=['GET'])
-def obtener_estudiante(no_control):
-    estudiante = Estudiante.query.get(no_control)
-    if estudiante is None:
-        return jsonify({'mensaje': 'Estudiante no encontrado'}), 404
-    return jsonify({
-        'no_control': estudiante.no_control,
-        'nombre': estudiante.nombre,
-        'ap_paterno': estudiante.ap_paterno,
-        'ap_materno': estudiante.ap_materno,
-        'semestre': estudiante.semestre
-    })
+# Rutas de la API
+@app.route('/alumnos', methods=['GET'])
+def get_alumnos():
+    try:
+        connection = get_connection()
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM alumnos")
+            alumnos = cursor.fetchall()
+        return jsonify(alumnos)
+    finally:
+        connection.close()
 
-# Endpoint para actualizar un estudiante
-@app.route('/estudiantes/<no_control>', methods=['PUT'])
-def actualizar_estudiante(no_control):
-    estudiante = Estudiante.query.get(no_control)
-    if estudiante is None:
-        return jsonify({'mensaje': 'Estudiante no encontrado'}), 404
+@app.route('/alumnos/<int:id>', methods=['GET'])
+def get_alumno(id):
+    try:
+        connection = get_connection()
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM alumnos WHERE id = %s", (id,))
+            alumno = cursor.fetchone()
+        if alumno:
+            return jsonify(alumno)
+        else:
+            return jsonify({"message": "Alumno no encontrado"}), 404
+    finally:
+        connection.close()
+
+@app.route('/alumnos', methods=['POST'])
+def create_alumno():
     data = request.get_json()
-    estudiante.nombre = data['nombre']
-    estudiante.ap_paterno = data['ap_paterno']
-    estudiante.ap_materno = data['ap_materno']
-    estudiante.semestre = data['semestre']
-    db.session.commit()
-    return jsonify({'mensaje': 'Estudiante actualizado exitosamente'})
+    try:
+        connection = get_connection()
+        with connection.cursor() as cursor:
+            sql = """
+            INSERT INTO alumnos (no_control, nombre, apeP, apeM, semestre) 
+            VALUES (%s, %s, %s, %s, %s)
+            """
+            cursor.execute(sql, (data['no_control'], data['nombre'], data['apeP'], data['apeM'], data['semestre']))
+            connection.commit()
+        return jsonify({"message": "Alumno creado correctamente"}), 201
+    finally:
+        connection.close()
 
-# Endpoint para eliminar un estudiante
-@app.route('/estudiantes/<no_control>', methods=['DELETE'])
-def eliminar_estudiante(no_control):
-    estudiante = Estudiante.query.get(no_control)
-    if estudiante is None:
-        return jsonify({'mensaje': 'Estudiante no encontrado'}), 404
-    db.session.delete(estudiante)
-    db.session.commit()
-    return jsonify({'mensaje': 'Estudiante eliminado exitosamente'})
+@app.route('/alumnos/<int:id>', methods=['PUT'])
+def update_alumno(id):
+    data = request.get_json()
+    try:
+        connection = get_connection()
+        with connection.cursor() as cursor:
+            sql = """
+            UPDATE alumnos 
+            SET no_control = %s, nombre = %s, apeP = %s, apeM = %s, semestre = %s 
+            WHERE id = %s
+            """
+            cursor.execute(sql, (data['no_control'], data['nombre'], data['apeP'], data['apeM'], data['semestre'], id))
+            connection.commit()
+        return jsonify({"message": "Alumno actualizado correctamente"})
+    finally:
+        connection.close()
+
+@app.route('/alumnos/<int:id>', methods=['DELETE'])
+def delete_alumno(id):
+    try:
+        connection = get_connection()
+        with connection.cursor() as cursor:
+            cursor.execute("DELETE FROM alumnos WHERE id = %s", (id,))
+            connection.commit()
+        return jsonify({"message": "Alumno eliminado correctamente"})
+    finally:
+        connection.close()
 
 if __name__ == '__main__':
     app.run(debug=True)

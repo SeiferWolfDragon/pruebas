@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7dcb2005-35cf-40a0-b9ba-ca3bcd82594e" name="Changes" comment="se ha instalado gunicorn, y modificado Crudrender.py">
-      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ComputoNube.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ComputoNube.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +33,12 @@
     &quot;assignee&quot;: &quot;SeiferWolfDragon&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/SeiferWolfDragon/pruebas.git&quot;,
-    &quot;accountId&quot;: &quot;f5b0dfe0-d3db-4cce-a116-0f7750c4f66d&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/SeiferWolfDragon/pruebas.git",
+    "accountId": "d9498d63-a198-44cb-a7f2-c170f229f42b"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -66,8 +69,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.17890.14" />
-        <option value="bundled-python-sdk-5b207ade9991-7e9c3bbb6e34-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.17890.14" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
+        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
       </set>
     </attachedChunks>
   </component>
@@ -83,6 +86,7 @@
       <workItem from="1725931905367" duration="597000" />
       <workItem from="1726527274365" duration="1157000" />
       <workItem from="1726781077833" duration="3270000" />
+      <workItem from="1732598562872" duration="2082000" />
     </task>
     <task id="LOCAL-00001" summary="Se cre repositorio. Crud listo (solo modo automatico">
       <option name="closed" value="true" />
