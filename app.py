@@ -6,7 +6,7 @@ app = Flask(__name__)
 # Configuración de la conexión a la base de datos
 def get_connection():
     return pymysql.connect(
-        host='localhost',
+        host='157.230.225.207',
         user='root',
         password='chuleta',
         database='CETECH',

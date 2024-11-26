@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7dcb2005-35cf-40a0-b9ba-ca3bcd82594e" name="Changes" comment="se ha instalado gunicorn, y modificado Crudrender.py">
-      <change afterPath="$PROJECT_DIR$/db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ComputoNube.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ComputoNube.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="7dcb2005-35cf-40a0-b9ba-ca3bcd82594e" name="Changes" comment="modificado para las necesidades de la actividad 3.2, requirements.txt actualizado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
@@ -86,7 +83,7 @@
       <workItem from="1725931905367" duration="597000" />
       <workItem from="1726527274365" duration="1157000" />
       <workItem from="1726781077833" duration="3270000" />
-      <workItem from="1732598562872" duration="2082000" />
+      <workItem from="1732598562872" duration="2891000" />
     </task>
     <task id="LOCAL-00001" summary="Se cre repositorio. Crud listo (solo modo automatico">
       <option name="closed" value="true" />
@@ -136,7 +133,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725921604290</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="modificado para las necesidades de la actividad 3.2">
+      <option name="closed" value="true" />
+      <created>1732638772509</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1732638772509</updated>
+    </task>
+    <task id="LOCAL-00008" summary="modificado para las necesidades de la actividad 3.2, requirements.txt actualizado">
+      <option name="closed" value="true" />
+      <created>1732638899569</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1732638899569</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +162,9 @@
     <MESSAGE value="no se por que no se subieron owo" />
     <MESSAGE value="guinicorn instalado" />
     <MESSAGE value="se ha instalado gunicorn, y modificado Crudrender.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="se ha instalado gunicorn, y modificado Crudrender.py" />
+    <MESSAGE value="modificado para las necesidades de la actividad 3.2" />
+    <MESSAGE value="modificado para las necesidades de la actividad 3.2, requirements.txt actualizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="modificado para las necesidades de la actividad 3.2, requirements.txt actualizado" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ComputoNube$CRUDRender.coverage" NAME="CRUDRender Coverage Results" MODIFIED="1726781759118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
